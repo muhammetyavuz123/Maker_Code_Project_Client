@@ -17,7 +17,10 @@ export default class PlayerCard extends Component {
   postCard = async () => {
     const requestBody = this.state;
     try {
-      const response = await axios.post(`http://localhost:3000`, requestBody);
+      const response = await axios.post(
+        `http://localhost:5000/cards`,
+        requestBody
+      );
       console.log(response.data);
     } catch (error) {}
   };
@@ -32,7 +35,7 @@ export default class PlayerCard extends Component {
         <h1 style={{ textAlign: "center" }}>Card Creation Form</h1>
 
         <form
-          class="ui form container field error"
+          className="ui form container field error"
           onSubmit={this.onSubmit}
           style={{ width: "500px" }}
         >
@@ -99,10 +102,10 @@ export default class PlayerCard extends Component {
           <br></br>
           <div className="fields">
             <div className="field">
-              <i class="turkey flag"></i>
-              <div class="field">
+              <i className="turkey flag"></i>
+              <div className="field">
                 <select
-                  class="ui fluid search dropdown"
+                  className="ui fluid search dropdown"
                   name="card[expire-month]"
                   style={{ width: "235px" }}
                   onChange={event =>
