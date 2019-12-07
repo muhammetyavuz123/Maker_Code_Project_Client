@@ -3,10 +3,12 @@ import cardsGet from "./cardsGet";
 import singleCardGet from "./singleCardGet";
 import blogGet from "./blogGet";
 import blogPost from "./blogPost";
+import cardDel from "./cardDel";
 
 export default combineReducers({
   cards: cardsGet,
   card: singleCardGet,
   blogGet: blogGet,
-  blogPost: blogPost
+  blogPost: blogPost,
+  cardDel: cardDel
 });

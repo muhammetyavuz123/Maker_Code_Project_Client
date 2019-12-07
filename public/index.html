@@ -37,6 +37,52 @@
       rel="stylesheet"
       id="bootstrap-css"
     />
+    <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i"
+      rel="stylesheet"
+    />
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
+      rel="stylesheet"
+    />
+    <link
+      href="https://use.fontawesome.com/releases/v5.0.6/css/all.css"
+      rel="stylesheet"
+    />
+    <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
+      rel="stylesheet"
+    />
+    <link
+      href="https://use.fontawesome.com/releases/v5.0.6/css/all.css"
+      rel="stylesheet"
+    />
+
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <!------ Include the above in your HEAD tag ---------->
@@ -121,9 +167,26 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
+      integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
+      integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
       crossorigin="anonymous"
     ></script>
     <script
@@ -131,5 +194,471 @@
       integrity="sha256-t8GepnyPmw9t+foMh3mKNvcorqNHamSKtKRxxpUEgFI="
       crossorigin="anonymous"
     ></script>
+    <!-- navbar home script -->
+    <script>
+      $(document).ready(function() {
+        var menuBtn = document.querySelector(".menu-btn");
+        var nav = document.querySelector("nav");
+        var lineOne = document.querySelector("header .menu-btn .line--1");
+        var lineTwo = document.querySelector("header .menu-btn .line--2");
+        var lineThree = document.querySelector("header .menu-btn .line--3");
+        var link = document.querySelector("nav .nav-links");
+        menuBtn.addEventListener("click", () => {
+          nav.classList.toggle("nav-open");
+          lineOne.classList.toggle("line-cross");
+          lineTwo.classList.toggle("line-fade-out");
+          lineThree.classList.toggle("line-cross");
+          link.classList.toggle("fade-in");
+        });
+      });
+
+      $(window).scroll(function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 50) {
+          $("body").addClass("animation");
+        } else {
+          $("body").removeClass("animation");
+        }
+      });
+    </script>
+    <!-- singlepage <script></script> -->
+    <script>
+      var transparent = true;
+      var big_image;
+
+      var transparentDemo = true;
+      var fixedTop = false;
+
+      var navbar_initialized,
+        backgroundOrange = false,
+        toggle_initialized = false;
+
+      var nowuiKit, $navbar, scroll_distance, oVal;
+
+      $(document).ready(function() {
+        //  Activate the Tooltips
+        $('[data-toggle="tooltip"], [rel="tooltip"]').tooltip();
+
+        // Activate Popovers and set color for popovers
+        $('[data-toggle="popover"]').each(function() {
+          color_class = $(this).data("color");
+          $(this).popover({
+            template:
+              '<div class="popover popover-' +
+              color_class +
+              '" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
+          });
+        });
+
+        // Activate the image for the navbar-collapse
+        nowuiKit.initNavbarImage();
+
+        $navbar = $(".navbar[color-on-scroll]");
+        scroll_distance = $navbar.attr("color-on-scroll") || 500;
+
+        // Check if we have the class "navbar-color-on-scroll" then add the function to remove the class "navbar-transparent" so it will transform to a plain color.
+
+        if ($(".navbar[color-on-scroll]").length != 0) {
+          nowuiKit.checkScrollForTransparentNavbar();
+          $(window).on("scroll", nowuiKit.checkScrollForTransparentNavbar);
+        }
+
+        $(".form-control")
+          .on("focus", function() {
+            $(this)
+              .parent(".input-group")
+              .addClass("input-group-focus");
+          })
+          .on("blur", function() {
+            $(this)
+              .parent(".input-group")
+              .removeClass("input-group-focus");
+          });
+
+        // Activate bootstrapSwitch
+        $(".bootstrap-switch").each(function() {
+          $this = $(this);
+          data_on_label = $this.data("on-label") || "";
+          data_off_label = $this.data("off-label") || "";
+
+          $this.bootstrapSwitch({
+            onText: data_on_label,
+            offText: data_off_label
+          });
+        });
+
+        if ($(window).width() >= 992) {
+          big_image = $('.page-header-image[data-parallax="true"]');
+
+          $(window).on("scroll", nowuiKitDemo.checkScrollForParallax);
+        }
+
+        // Activate Carousel
+        $(".carousel").carousel({
+          interval: 4000
+        });
+
+        $(".date-picker").each(function() {
+          $(this)
+            .datepicker({
+              templates: {
+                leftArrow: '<i class="now-ui-icons arrows-1_minimal-left"></i>',
+                rightArrow:
+                  '<i class="now-ui-icons arrows-1_minimal-right"></i>'
+              }
+            })
+            .on("show", function() {
+              $(".datepicker").addClass("open");
+
+              datepicker_color = $(this).data("datepicker-color");
+              if (datepicker_color.length != 0) {
+                $(".datepicker").addClass(
+                  "datepicker-" + datepicker_color + ""
+                );
+              }
+            })
+            .on("hide", function() {
+              $(".datepicker").removeClass("open");
+            });
+        });
+      });
+
+      // Javascript just for Demo purpose, remove it from your project
+      nowuiKitDemo = {
+        checkScrollForParallax: debounce(function() {
+          var current_scroll = $(this).scrollTop();
+
+          oVal = $(window).scrollTop() / 3;
+          big_image.css({
+            transform: "translate3d(0," + oVal + "px,0)",
+            "-webkit-transform": "translate3d(0," + oVal + "px,0)",
+            "-ms-transform": "translate3d(0," + oVal + "px,0)",
+            "-o-transform": "translate3d(0," + oVal + "px,0)"
+          });
+        }, 6)
+      };
+
+      // Returns a function, that, as long as it continues to be invoked, will not
+      // be triggered. The function will be called after it stops being called for
+      // N milliseconds. If `immediate` is passed, trigger the function on the
+      // leading edge, instead of the trailing.
+
+      function debounce(func, wait, immediate) {
+        var timeout;
+        return function() {
+          var context = this,
+            args = arguments;
+          clearTimeout(timeout);
+          timeout = setTimeout(function() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+          }, wait);
+          if (immediate && !timeout) func.apply(context, args);
+        };
+      }
+
+      $(window).on("resize", function() {
+        nowuiKit.initNavbarImage();
+      });
+
+      $(document).on("click", ".navbar-toggler", function() {
+        $toggle = $(this);
+
+        if (nowuiKit.misc.navbar_menu_visible == 1) {
+          $("html").removeClass("nav-open");
+          nowuiKit.misc.navbar_menu_visible = 0;
+          $("#bodyClick").remove();
+          setTimeout(function() {
+            $toggle.removeClass("toggled");
+          }, 550);
+        } else {
+          setTimeout(function() {
+            $toggle.addClass("toggled");
+          }, 580);
+          div = '<div id="bodyClick"></div>';
+          $(div)
+            .appendTo("body")
+            .click(function() {
+              $("html").removeClass("nav-open");
+              nowuiKit.misc.navbar_menu_visible = 0;
+              setTimeout(function() {
+                $toggle.removeClass("toggled");
+                $("#bodyClick").remove();
+              }, 550);
+            });
+
+          $("html").addClass("nav-open");
+          nowuiKit.misc.navbar_menu_visible = 1;
+        }
+      });
+
+      nowuiKit = {
+        misc: {
+          navbar_menu_visible: 0
+        },
+
+        checkScrollForTransparentNavbar: debounce(function() {
+          if ($(document).scrollTop() > scroll_distance) {
+            if (transparent) {
+              transparent = false;
+              $(".navbar[color-on-scroll]").removeClass("navbar-transparent");
+            }
+          } else {
+            if (!transparent) {
+              transparent = true;
+              $(".navbar[color-on-scroll]").addClass("navbar-transparent");
+            }
+          }
+        }, 17),
+
+        initNavbarImage: function() {
+          var $navbar = $(".navbar")
+            .find(".navbar-translate")
+            .siblings(".navbar-collapse");
+          var background_image = $navbar.data("nav-image");
+
+          if (background_image != undefined) {
+            if ($(window).width() < 991 || $("body").hasClass("burger-menu")) {
+              $navbar
+                .css("background", "url('" + background_image + "')")
+                .removeAttr("data-nav-image")
+                .css("background-size", "cover")
+                .addClass("has-image");
+            } else {
+              $navbar
+                .css("background", "")
+                .attr("data-nav-image", "" + background_image + "")
+                .css("background-size", "")
+                .removeClass("has-image");
+            }
+          }
+        },
+
+        initSliders: function() {
+          // Sliders for demo purpose in refine cards section
+          var slider = document.getElementById("sliderRegular");
+
+          noUiSlider.create(slider, {
+            start: 40,
+            connect: [true, false],
+            range: {
+              min: 0,
+              max: 100
+            }
+          });
+
+          var slider2 = document.getElementById("sliderDouble");
+
+          noUiSlider.create(slider2, {
+            start: [20, 60],
+            connect: true,
+            range: {
+              min: 0,
+              max: 100
+            }
+          });
+        }
+      };
+
+      // Javascript just for Demo purpose, remove it from your project
+      nowuiKitDemo = {
+        checkScrollForParallax: debounce(function() {
+          var current_scroll = $(this).scrollTop();
+
+          oVal = $(window).scrollTop() / 3;
+          big_image.css({
+            transform: "translate3d(0," + oVal + "px,0)",
+            "-webkit-transform": "translate3d(0," + oVal + "px,0)",
+            "-ms-transform": "translate3d(0," + oVal + "px,0)",
+            "-o-transform": "translate3d(0," + oVal + "px,0)"
+          });
+        }, 6)
+      };
+
+      function debounce(func, wait, immediate) {
+        var timeout;
+        return function() {
+          var context = this,
+            args = arguments;
+          clearTimeout(timeout);
+          timeout = setTimeout(function() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+          }, wait);
+          if (immediate && !timeout) func.apply(context, args);
+        };
+      }
+
+      // genelNavbar script
+      $(document).ready(function() {
+        $(".menu-icon").on("click", function() {
+          $("nav ul").toggleClass("showing");
+        });
+      });
+
+      // Scrolling Effect
+
+      $(window).on("scroll", function() {
+        if ($(window).scrollTop()) {
+          $("nav").addClass("black");
+        } else {
+          $("nav").removeClass("black");
+        }
+      });
+    </script>
+    <!-- calendar script -->
+    <script>
+      $(document).ready(function() {
+        var date = new Date();
+        var d = date.getDate();
+        var m = date.getMonth();
+        var y = date.getFullYear();
+
+        /*  className colors
+          
+          className: default(transparent), important(red), chill(pink), success(green), info(blue)
+          
+          */
+
+        /* initialize the external events
+          -----------------------------------------------------------------*/
+
+        $("#external-events div.external-event").each(function() {
+          // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
+          // it doesn't need to have a start or end
+          var eventObject = {
+            title: $.trim($(this).text()) // use the element's text as the event title
+          };
+
+          // store the Event Object in the DOM element so we can get to it later
+          $(this).data("eventObject", eventObject);
+
+          // make the event draggable using jQuery UI
+          $(this).draggable({
+            zIndex: 999,
+            revert: true, // will cause the event to go back to its
+            revertDuration: 0 //  original position after the drag
+          });
+        });
+
+        /* initialize the calendar
+          -----------------------------------------------------------------*/
+
+        var calendar = $("#calendar").fullCalendar({
+          header: {
+            left: "title",
+            center: "agendaDay,agendaWeek,month",
+            right: "prev,next today"
+          },
+          editable: true,
+          firstDay: 1, //  1(Monday) this can be changed to 0(Sunday) for the USA system
+          selectable: true,
+          defaultView: "month",
+
+          axisFormat: "h:mm",
+          columnFormat: {
+            month: "ddd", // Mon
+            week: "ddd d", // Mon 7
+            day: "dddd M/d", // Monday 9/7
+            agendaDay: "dddd d"
+          },
+          titleFormat: {
+            month: "MMMM yyyy", // September 2009
+            week: "MMMM yyyy", // September 2009
+            day: "MMMM yyyy" // Tuesday, Sep 8, 2009
+          },
+          allDaySlot: false,
+          selectHelper: true,
+          select: function(start, end, allDay) {
+            var title = prompt("Event Title:");
+            if (title) {
+              calendar.fullCalendar(
+                "renderEvent",
+                {
+                  title: title,
+                  start: start,
+                  end: end,
+                  allDay: allDay
+                },
+                true // make the event "stick"
+              );
+            }
+            calendar.fullCalendar("unselect");
+          },
+          droppable: true, // this allows things to be dropped onto the calendar !!!
+          drop: function(date, allDay) {
+            // this function is called when something is dropped
+
+            // retrieve the dropped element's stored Event Object
+            var originalEventObject = $(this).data("eventObject");
+
+            // we need to copy it, so that multiple events don't have a reference to the same object
+            var copiedEventObject = $.extend({}, originalEventObject);
+
+            // assign it the date that was reported
+            copiedEventObject.start = date;
+            copiedEventObject.allDay = allDay;
+
+            // render the event on the calendar
+            // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
+            $("#calendar").fullCalendar("renderEvent", copiedEventObject, true);
+
+            // is the "remove after drop" checkbox checked?
+            if ($("#drop-remove").is(":checked")) {
+              // if so, remove the element from the "Draggable Events" list
+              $(this).remove();
+            }
+          },
+
+          events: [
+            {
+              title: "All Day Event",
+              start: new Date(y, m, 1)
+            },
+            {
+              id: 999,
+              title: "Repeating Event",
+              start: new Date(y, m, d - 3, 16, 0),
+              allDay: false,
+              className: "info"
+            },
+            {
+              id: 999,
+              title: "Repeating Event",
+              start: new Date(y, m, d + 4, 16, 0),
+              allDay: false,
+              className: "info"
+            },
+            {
+              title: "Meeting",
+              start: new Date(y, m, d, 10, 30),
+              allDay: false,
+              className: "important"
+            },
+            {
+              title: "Lunch",
+              start: new Date(y, m, d, 12, 0),
+              end: new Date(y, m, d, 14, 0),
+              allDay: false,
+              className: "important"
+            },
+            {
+              title: "Birthday Party",
+              start: new Date(y, m, d + 1, 19, 0),
+              end: new Date(y, m, d + 1, 22, 30),
+              allDay: false
+            },
+            {
+              title: "Click for Google",
+              start: new Date(y, m, 28),
+              end: new Date(y, m, 29),
+              url: "https://ccp.cloudaccess.net/aff.php?aff=5188",
+              className: "success"
+            }
+          ]
+        });
+      });
+    </script>
   </body>
 </html>

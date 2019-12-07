@@ -27,13 +27,26 @@ export const cardSearch = search => async dispatch => {
 
 // blog action
 export const blogGet = () => async dispatch => {
-  const response = await db.get("/blog");
+  const response = await db.get("/blok");
 
   dispatch({ type: "GET_BLOG", payload: response.data });
 };
 
 export const blogPost = () => async dispatch => {
-  const response = await db.post("/blog");
+  const response = await db.post("/blok");
 
   dispatch({ type: "BLOG_POST", payload: response.data });
+};
+//card Delete
+export const cardDel = cardId => async dispatch => {
+  const res = await db.delete(`/cards/${cardId}`, {
+    headers: {
+      Authorization: localStorage.getItem("JWT_Token")
+    }
+  });
+
+  dispatch({
+    type: "CARD_DELETE",
+    payload: { data: res.data, date: new Date() }
+  });
 };
