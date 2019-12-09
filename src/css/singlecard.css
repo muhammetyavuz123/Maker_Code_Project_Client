@@ -702,7 +702,7 @@ img {
 }
 
 .profile-page .page-header {
-  min-height: 550px;
+  min-height: 450px;
 }
 
 .profile-page .photo-container {
@@ -788,11 +788,12 @@ img {
 
 .page-header {
   min-height: 100vh;
-  max-height: 999px;
+  max-height: 840px;
   padding: 0;
   color: #ffffff;
   position: relative;
   overflow: hidden;
+  margin-top: -15px;
 }
 
 .page-header > .content {

@@ -2,40 +2,33 @@ import React, { useState } from "react";
 import "../css/login.css";
 import axios from "axios";
 import NavBar from "./NavBar";
+import history from "../history";
 
 export default function Login() {
   const [mail, setmail] = useState(""); //hooks state
   const [password, setpassword] = useState(""); //hooks state
 
+  // Form Submit ve post edilen Kısım
   const submithundleler = event => {
-    event.preventDefault();
+    // event.preventDefault();
     axios
       .post("http://localhost:5000/login", { mail, password })
       .then(response => {
-        const token = response.headers.authorization; //sor
-        localStorage.setItem("JWT_Token", token); //sor
+        const token = response.headers.authorization;
+        localStorage.setItem("JWT_Token", token); //localStorage atıyoruz
       });
+    history.push("/PlayerCard");
   };
 
   return (
     <div>
       <NavBar></NavBar>
+      {/* Login sayfası render */}
       <div class="container">
         <div class="d-flex justify-content-center h-100">
           <div class="cardd">
             <div class="card-header">
               <h3>Sign In</h3>
-              <div class="d-flex justify-content-end social_icon">
-                <span>
-                  <i class="fab fa-facebook-square"></i>
-                </span>
-                <span>
-                  <i class="fab fa-google-plus-square"></i>
-                </span>
-                <span>
-                  <i class="fab fa-twitter-square"></i>
-                </span>
-              </div>
             </div>
             <div class="card-body">
               <form onSubmit={submithundleler}>

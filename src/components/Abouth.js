@@ -8,80 +8,76 @@ export default class Abouth extends Component {
     return (
       <div>
         <NavBar></NavBar>
-        <div class="accordian">
-          <ul>
-            <li>
-              <div class="image_title">
-                <a>
-                  <a>
-                    <span>Vizyon</span>
-                    Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat
-                    numune kitabı oluşturmak üzere bir yazı galerisini alarak
-                    karıştırdığı 1500'lerden beri endüstri standardı sahte
-                    metinler olarak kullanılmıştı
-                  </a>
-                </a>
+        {/* About Sayfası render kısmı */}
+        <header class="">
+          <div class="container">
+            <h1
+              class="font-weight-light text-white"
+              style={{ textAlign: "center" }}
+            >
+              OyuncuBul.com Ekibi
+            </h1>
+          </div>
+        </header>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-0 shadow">
+                <img
+                  src="https://source.unsplash.com/TMgQMXoglsM/500x350"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body text-center">
+                  <h5 class="card-title mb-0">Muhammet Yavuz</h5>
+                  <div class="card-text text-black-50">Mekanın Sahibi</div>
+                </div>
               </div>
-              <a href="https://www.erzurum.bel.tr/img/CK/images/M%C4%B0SYON(1).png">
-                <img src="https://iasbh.tmgrup.com.tr/894f5b/650/344/0/16/400/227?u=http://i.sabah.com.tr/sbh/2017/02/05/misyon-ve-vizyon-arasindaki-fark-nedir-1486279908484.png" />
-              </a>
-            </li>
-            <li>
-              <div class="image_title">
-                <a>
-                  <span>Misyon</span>
-                  Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune
-                  kitabı oluşturmak üzere bir yazı galerisini alarak
-                  karıştırdığı 1500'lerden beri endüstri standardı sahte
-                  metinler olarak kullanılmıştı
-                </a>
+            </div>
+
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-0 shadow">
+                <img
+                  src="https://source.unsplash.com/9UVmlIb0wJU/500x350"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body text-center">
+                  <h5 class="card-title mb-0">Ayşe Ay</h5>
+                  <div class="card-text text-black-50">Müdür Yardımcısı</div>
+                </div>
               </div>
-              <a href="https://www.youtube.com/channel/UCXTfDJ60DBmA932Du6B1ydg">
-                <img src="https://iasbh.tmgrup.com.tr/894f5b/650/344/0/16/400/227?u=http://i.sabah.com.tr/sbh/2017/02/05/misyon-ve-vizyon-arasindaki-fark-nedir-1486279908484.png" />
-              </a>
-            </li>
-            <li>
-              <div class="image_title">
-                <a>
-                  <span>Biz Kimiz</span>
-                  Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune
-                  kitabı oluşturmak üzere bir yazı galerisini alarak
-                  karıştırdığı 1500'lerden beri endüstri standardı sahte
-                  metinler olarak kullanılmıştı
-                </a>
+            </div>
+
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-0 shadow">
+                <img
+                  src="https://source.unsplash.com/sNut2MqSmds/500x350"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body text-center">
+                  <h5 class="card-title mb-0">Hasan Işık</h5>
+                  <div class="card-text text-black-50">Web Developer</div>
+                </div>
               </div>
-              <a href="https://www.youtube.com/channel/UCXTfDJ60DBmA932Du6B1ydg">
-                <img src="https://asder.org.tr/media/k2/items/cache/5a1fdee3d8f8504ca6c9c3d132f7e23d_XL.jpg" />
-              </a>
-            </li>
-            <li>
-              <div class="image_title">
-                <a>
-                  <span>Hedeflerimiz</span>
-                  Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune
-                  kitabı oluşturmak üzere bir yazı galerisini alarak
-                  karıştırdığı 1500'lerden beri endüstri standardı sahte
-                  metinler olarak kullanılmıştı
-                </a>
+            </div>
+
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-0 shadow">
+                <img
+                  src="https://source.unsplash.com/ZI6p3i9SbVU/500x350"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body text-center">
+                  <h5 class="card-title mb-0">Eda Ay</h5>
+                  <div class="card-text text-black-50">Web Developer</div>
+                </div>
               </div>
-              <a href="https://www.youtube.com/channel/UCXTfDJ60DBmA932Du6B1ydg"></a>
-              <img src="https://asder.org.tr/media/k2/items/cache/5a1fdee3d8f8504ca6c9c3d132f7e23d_XL.jpg" />
-            </li>
-            <li>
-              <div class="image_title">
-                <a>
-                  <span>Önceliklerimiz</span>
-                  Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune
-                  kitabı oluşturmak üzere bir yazı galerisini alarak
-                  karıştırdığı 1500'lerden beri endüstri standardı sahte
-                  metinler olarak kullanılmıştı
-                </a>
-              </div>
-              <a href="https://www.youtube.com/channel/UCXTfDJ60DBmA932Du6B1ydg">
-                <img src="http://www.kamuajans.com/images/haberler/2018/03/onceliklerimiz_h522319_6b9c7.png" />
-              </a>
-            </li>
-          </ul>
+            </div>
+          </div>
         </div>
         <Footer />
       </div>

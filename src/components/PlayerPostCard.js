@@ -2,8 +2,11 @@ import React, { Component } from "react";
 import axios from "axios";
 import "../css/PlayerPostPage.css";
 import NavBar from "./NavBar";
+import Footer from "./Footer";
+import history from "../history";
 
 export default class PlayerCard extends Component {
+  //back end de olan bilgilerimi state olarak tuttuğum kısım
   state = {
     name: "",
     surname: "",
@@ -13,7 +16,8 @@ export default class PlayerCard extends Component {
     databirth: "",
     city: "",
     district: "",
-    explanation: ""
+    explanation: "",
+    img: {}
   };
 
   postCard = async () => {
@@ -22,12 +26,14 @@ export default class PlayerCard extends Component {
       const response = await axios.post(
         `http://localhost:5000/cards`,
         requestBody,
+
         {
           headers: {
             Authorization: localStorage.getItem("JWT_Token")
           }
         }
       );
+      history.push("/Cards");
       console.log(response.data);
     } catch (error) {}
   };
@@ -40,167 +46,174 @@ export default class PlayerCard extends Component {
     return (
       <div>
         <NavBar></NavBar>
-        <div style={{ marginRight: "30%" }}>
+        <h1
+          class="font-weight-light text-white"
+          style={{ textAlign: "center" }}
+        >
+          Oyuncu Kartı Oluştur
+        </h1>
+        <div style={{ marginRight: "40%" }}>
           <form
             className="ui form container field error"
             onSubmit={this.onSubmit}
             style={{ width: "500px", marginRight: "80%" }}
           >
             <br></br>
-
             <br></br>
             <div className="fields">
               <div className="field">
+                <label>İsim</label>
                 <input
                   type="text"
-                  placeholder="Name"
+                  placeholder="İsim"
                   onChange={event =>
                     this.setState({ name: event.target.value })
                   }
-                  style={{ width: "230px" }}
                 ></input>
               </div>
               <br></br>
 
               <div className="field">
+                <label>SoyAd</label>
                 <input
                   type="text"
-                  placeholder="Surname"
+                  placeholder="SoyAd"
                   onChange={event =>
                     this.setState({ surname: event.target.value })
                   }
-                  style={{ width: "230px" }}
                 ></input>
               </div>
             </div>
-
             <hr></hr>
             <br></br>
+            <label>Telefon</label>
             <input
               type="text"
-              placeholder="Number"
+              placeholder="Telefon"
               onChange={event => this.setState({ number: event.target.value })}
             ></input>
             <br></br>
             <hr></hr>
             <br></br>
+            <label>Meslek</label>
             <input
               type="text"
-              placeholder="Job"
+              placeholder="Meslek"
               onChange={event => this.setState({ job: event.target.value })}
             ></input>
             <br></br>
             <hr></hr>
             <br></br>
+            <label>Email</label>
             <input
-              type="email"
+              type="Email"
               placeholder="Email"
               onChange={event => this.setState({ mail: event.target.value })}
             ></input>
             <br></br>
             <hr></hr>
             <br></br>
+            <label>Doğum Tarihi:</label>
             <input
               type="text"
-              placeholder="Date birth"
+              placeholder="Doğum Tarihi"
               onChange={event =>
                 this.setState({ databirth: event.target.value })
               }
             ></input>
-
             <br></br>
             <hr></hr>
             <br></br>
-            <div className="fields">
-              <div className="field">
-                <i className="turkey flag"></i>
+
+            <div
+              style={{
+                float: "left",
+                marginLeft: "510px",
+                marginTop: "-800px"
+              }}
+            >
+              <div className="fields">
                 <div className="field">
-                  <select
-                    className="ui fluid search dropdown"
-                    name="card[expire-month]"
-                    style={{ width: "235px" }}
+                  <label>Şehir</label>
+                  <input
+                    type="text"
+                    placeholder="Şehir"
                     onChange={event =>
                       this.setState({ city: event.target.value })
                     }
-                  >
-                    <option value="">City</option>
-                    <option value="Ankara">Ankara</option>
-                    <option value="Adana">Adana</option>
-                    <option value="İstanbul">İstanbul</option>
-                    <option value="İzmir">İzmir</option>
-                    <option value="Amasya">Amasya</option>
-                    <option value="Artvin">Artvin</option>
-                    <option value="Çorum">Çorum</option>
-                    <option value="Gaziantep">Gaziantep</option>
-                    <option value="Düzce">Düzce</option>
-                    <option value="Kocaeli">Kocaeli</option>
-                    <option value="Erzurum">Erzurum</option>
-                    <option value="Eskişehir">Eskişehir</option>
-                  </select>
+                    style={{ width: "230px" }}
+                  ></input>
+                </div>
+                <br></br>
+
+                <div className="field">
+                  <label>İlçe</label>
+                  <input
+                    type="text"
+                    placeholder="İlçe"
+                    onChange={event =>
+                      this.setState({ district: event.target.value })
+                    }
+                    style={{ width: "230px" }}
+                  ></input>
                 </div>
               </div>
 
-              <div class="field">
-                <i class="turkey flag"></i>
-                <select
-                  style={{ width: "230px" }}
-                  class="ui fluid search dropdown"
-                  name="card[expire-month]"
-                  onChange={event =>
-                    this.setState({ district: event.target.value })
-                  }
-                >
-                  <option value="">district</option>
-                  <option value="Çatalca">Çatalca</option>
-                  <option value="Beylikdüzü">Beylikdüzü</option>
-                  <option value="Ümranire">Ümranire</option>
-                  <option value="KadıKöy">KadıKöy</option>
-                  <option value="Beyoğlu">Beyoğlu</option>
-                  <option value="Eminönü">Eminönü</option>
-                  <option value="Çorum">Çorum</option>
-                </select>
-              </div>
-            </div>
+              <br></br>
+              <hr></hr>
+              <br></br>
+              <label>Explanation</label>
+              <textarea
+                onChange={event =>
+                  this.setState({ explanation: event.target.value })
+                }
+              ></textarea>
 
-            <br></br>
-            <hr></hr>
-            <br></br>
-            <label>Explanation</label>
-            <textarea
-              onChange={event =>
-                this.setState({ explanation: event.target.value })
-              }
-            ></textarea>
+              <br></br>
+              <hr></hr>
+              <div
+                class="container"
+                style={{
+                  marginLeft: "-5%",
+                  width: "600px",
 
-            <br></br>
-            <hr></hr>
-            <div
-              class="container"
-              style={{
-                marginLeft: "-5%",
-                width: "600px",
-
-                marginTop: "-10px"
-              }}
-            >
-              <div class="row">
-                <div class="col-md-6">
-                  <form method="post" action="#" id="#">
-                    <div class="form-group files">
-                      <label>Lütfen Profil Resmi Seçiniz</label>
-                      <input type="file" class="form-control" multiple="" />
-                      <br></br>
-                    </div>
-                  </form>
+                  marginTop: "-10px"
+                }}
+              >
+                <div class="row" style={{ marginLeft: "15px" }}>
+                  <div class="col-md-6">
+                    <form method="post" action="#" id="#">
+                      <div class="form-group files">
+                        <label>Lütfen Profil Resmi Seçiniz</label>
+                        <input
+                          type="file"
+                          class="form-control"
+                          multiple=""
+                          onChange={event =>
+                            this.setState({ img: event.target.value })
+                          }
+                        />
+                        <br></br>
+                      </div>
+                    </form>
+                  </div>
                 </div>
               </div>
+              <br></br>
+              <button
+                className="ui button"
+                type="submit"
+                style={{ marginLeft: "15px" }}
+              >
+                Submit
+              </button>
             </div>
-            <br></br>
-            <button className="ui button" type="submit">
-              Submit
-            </button>
           </form>
         </div>
+        <br></br>
+        <br></br>
+        <br></br>
+        <Footer></Footer>
       </div>
     );
   }

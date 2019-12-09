@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 export default class Home extends Component {
   render() {
+    //home render kısmı
     return (
       <div>
         <div class="main-wrap">
@@ -52,6 +53,10 @@ export default class Home extends Component {
             </header>
             <div class="content">
               <div class="site-banner__vid">
+                <img
+                  src="http://imgstocks.com/wp-content/uploads/Hd-soccer-20-wallpaper-you-are-viewing-the-sports-wallpaper-named-hd.jpg"
+                  style={{ width: "100%", height: "auto" }}
+                />
                 <video
                   muted=""
                   autoplay=""
@@ -60,13 +65,15 @@ export default class Home extends Component {
                   playsinline=""
                   data-video="0"
                 >
-                  <source src="http://www.saxonglobal.com/wp-content/themes/saxonglobal/video/saxonglobal.mp4" />
+                  {/* <source
+                    src="https://www.youtube.com/watch?v=G4t6TqG5LM8"
+                    type="video/mp4"
+                  /> */}
                 </video>
                 <div class="overlay-bg"></div>
                 <div class="header-title">
                   <h2 style={{ color: "white" }}>
                     Akşam Halısaha Maçımı Yapmak İstiyorsun Kartını Oluştur
-                    <br></br>
                     <br></br>
                     Halısaya Eksik Çıkma
                   </h2>
@@ -109,9 +116,11 @@ export default class Home extends Component {
                 <div id="f2">
                   <div class="inside">
                     <span></span>
-                    <h3>
-                      Oyuncu Bul
-                      <span class="blue-text">Kayıt olmak için tıkayınız</span>
+                    <h3 style={{ color: "black" }}>
+                      Oyuncu Kartı Oluştur
+                      <span class="blue-text" style={{ color: "black" }}>
+                        Kayıt olmak için tıkayınız
+                      </span>
                     </h3>
                     <Link to="/Register" className="item">
                       <h4>
@@ -126,8 +135,11 @@ export default class Home extends Component {
                 <div id="f3">
                   <div class="inside">
                     <span></span>
-                    <h3>
-                      Oyuncu Bul <span class="blue-text">Kayıt Olmadan</span>
+                    <h3 style={{ color: "black" }}>
+                      Oyuncu Bul{" "}
+                      <span class="blue-text" style={{ color: "black" }}>
+                        Kayıt Olmadan
+                      </span>
                     </h3>
                     <Link to="/Cards" className="item">
                       <h4>İstediğiniz Oyuncuyu Bulmak için Tıklayınız!</h4>

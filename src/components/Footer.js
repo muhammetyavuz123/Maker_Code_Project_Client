@@ -3,6 +3,7 @@ import "../css/footer.css";
 
 export default class Footer extends Component {
   render() {
+    //footer render kısmı
     return (
       <div>
         <footer id="dk-footer" class="dk-footer">
@@ -15,10 +16,7 @@ export default class Footer extends Component {
                       Oyuncu<br></br>Bul.com
                     </h2>
                   </a>
-                  <p class="footer-info-text">
-                    Reference site about Lorem Ipsum, giving information on its
-                    origins, as well as a random Lipsum generator.
-                  </p>
+                  <p class="footer-info-text"></p>
                   <div class="footer-social-link">
                     <h3>OyuncuBul.com</h3>
                     <ul>

@@ -4,6 +4,10 @@ import { connect } from "react-redux";
 import "../css/singlecard.css";
 import NavBar from "./NavBar";
 import Calendar from "./Calendar";
+// import BlokPost from "./BlokPost";
+import Footer from "./Footer";
+import Loading from "./Loading";
+import ProfilBlok from "./ProfilBlok";
 
 class SingleCard extends Component {
   //single card için card id singlecardID içine attım
@@ -39,7 +43,7 @@ class SingleCard extends Component {
 
                 <h3 class="title">
                   <h3>
-                    {this.props.card.name}
+                    {this.props.card.name} &nbsp;
                     {this.props.card.surname}
                   </h3>
                 </h3>
@@ -83,14 +87,48 @@ class SingleCard extends Component {
                     <i class="fab fa-instagram"></i>
                   </a>
                 </div>
-                <h3 class="title">About me</h3>
-                <h3>{this.props.card.number}</h3>
-                <h3>{this.props.card.job}</h3>
-                <h3>{this.props.card.databirth}</h3>
-                <h3>{this.props.card.city}</h3>
-                <h3>{this.props.card.district}</h3>
-                <h3>{this.props.card.mail}</h3>
-                <h3>{this.props.card.explanation}</h3>
+                <div className="container" style={{ borderStyle: "double " }}>
+                  <h3 class="title">About me</h3>
+                  <br></br>
+                  <br></br>
+                  <br></br>
+
+                  <h3 style={{ borderStyle: "solid" }}>
+                    <label>Telefon:</label>
+                    <br></br>
+                    &nbsp; &nbsp;{this.props.card.number}
+                  </h3>
+                  <h3 style={{ borderStyle: "solid" }}>
+                    <label>Mesleği:</label>
+                    <br></br>
+                    &nbsp; &nbsp;{this.props.card.job}
+                  </h3>
+                  <h3 style={{ borderStyle: "solid" }}>
+                    <label>Doğum Tarihi:</label>
+                    <br></br>
+                    &nbsp; &nbsp;{this.props.card.databirth}
+                  </h3>
+                  <h3 style={{ borderStyle: "solid" }}>
+                    <label>Şehir:</label>
+                    <br></br>
+                    &nbsp; &nbsp; {this.props.card.city}
+                  </h3>
+                  <h3 style={{ borderStyle: "solid" }}>
+                    <label>İlçe:</label>
+                    <br></br>
+                    &nbsp; &nbsp;{this.props.card.district}
+                  </h3>
+                  <h3 style={{ borderStyle: "solid" }}>
+                    <label>Email:</label>
+                    <br></br>
+                    &nbsp; &nbsp;{this.props.card.mail}
+                  </h3>
+                  <h3>
+                    <label>Açıklama:</label>
+                    <br></br>
+                    &nbsp; &nbsp; {this.props.card.explanation}
+                  </h3>
+                </div>
                 <div class="row">
                   <div class="col-md-6 ml-auto mr-auto">
                     <h4 class="title text-center">My Portfolio</h4>
@@ -132,30 +170,49 @@ class SingleCard extends Component {
                       </ul>
                     </div>
                   </div>
-                  <div class="tab-content gallery">
-                    <div class="tab-pane active" id="home" role="tabpanel">
+                  <div class="tab-content gallery container">
+                    <div
+                      class="tab-pane active"
+                      id="home"
+                      role="tabpanel"
+                      style={{ marginLeft: "220px", width: "1250px" }}
+                    >
+                      <div class="col-md-10 ml-auto mr-auto">
+                        <div class="row collections">
+                          <div class="col-md-6">
+                            <ProfilBlok></ProfilBlok>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="tab-pane"
+                      id="profile"
+                      role="tabpanel"
+                      style={{ marginLeft: "70px", width: "1250px" }}
+                    >
                       <div class="col-md-10 ml-auto mr-auto">
                         <div class="row collections">
                           <div class="col-md-6">
                             <img
-                              src="https://raw.githack.com/creativetimofficial/now-ui-kit/master/assets/img/bg1.jpg"
+                              src="https://images.unsplash.com/photo-1553778263-73a83bab9b0c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
                               alt=""
                               class="img-raised"
                             />
                             <img
-                              src="https://raw.githack.com/creativetimofficial/now-ui-kit/master/assets/img/bg3.jpg"
+                              src="https://images.unsplash.com/photo-1511886929837-354d827aae26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
                               alt=""
                               class="img-raised"
                             />
                           </div>
                           <div class="col-md-6">
                             <img
-                              src="https://raw.githack.com/creativetimofficial/now-ui-kit/master/assets/img/bg8.jpg"
+                              src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
                               alt=""
                               class="img-raised"
                             />
                             <img
-                              src="https://raw.githack.com/creativetimofficial/now-ui-kit/master/assets/img/bg7.jpg"
+                              src="https://images.unsplash.com/flagged/photo-1550413231-202a9d53a331?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
                               alt=""
                               class="img-raised"
                             />
@@ -163,40 +220,16 @@ class SingleCard extends Component {
                         </div>
                       </div>
                     </div>
-                    <div class="tab-pane" id="profile" role="tabpanel">
+                    <div
+                      class="tab-pane"
+                      id="messages"
+                      role="tabpanel"
+                      style={{ marginLeft: "300px", width: "1250px" }}
+                    >
                       <div class="col-md-10 ml-auto mr-auto">
                         <div class="row collections">
                           <div class="col-md-6">
-                            <img
-                              src="https://raw.githack.com/creativetimofficial/now-ui-kit/master/assets/img/bg6.jpg"
-                              class="img-raised"
-                            />
-                            <img
-                              src="https://raw.githack.com/creativetimofficial/now-ui-kit/master/assets/img/bg11.jpg"
-                              alt=""
-                              class="img-raised"
-                            />
-                          </div>
-                          <div class="col-md-6">
-                            <img
-                              src="https://raw.githack.com/creativetimofficial/now-ui-kit/master/assets/img/bg7.jpg"
-                              alt=""
-                              class="img-raised"
-                            />
-                            <img
-                              src="https://raw.githack.com/creativetimofficial/now-ui-kit/master/assets/img/bg8.jpg"
-                              alt=""
-                              class="img-raised"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="tab-pane" id="messages" role="tabpanel">
-                      <div class="col-md-10 ml-auto mr-auto">
-                        <div class="row collections">
-                          <div class="col-md-6">
-                            <div class="img-raised"></div>
+                            <Calendar></Calendar>
                           </div>
                         </div>
                       </div>
@@ -209,7 +242,11 @@ class SingleCard extends Component {
         </div>
       );
     } else {
-      return <div>Loading</div>;
+      return (
+        <div>
+          <Loading></Loading>
+        </div>
+      );
     }
   };
 
@@ -219,7 +256,7 @@ class SingleCard extends Component {
       <div>
         <NavBar></NavBar>
         {this.renderList()}
-        <Calendar />
+        <Footer></Footer>
       </div>
     );
   }

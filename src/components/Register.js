@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../css/register.css";
 import axios from "axios";
 import NavBar from "./NavBar";
+import history from "../history";
 
 export default class Register extends Component {
   state = {
@@ -18,6 +19,7 @@ export default class Register extends Component {
         `http://localhost:5000/register`,
         requestBody
       );
+      history.push("/login");
       console.log(response.data);
     } catch (error) {}
   };

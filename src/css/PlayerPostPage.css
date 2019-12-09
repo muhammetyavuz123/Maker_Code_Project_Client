@@ -29,7 +29,7 @@
   right: 0;
   height: 56px;
   content: "";
-  /* background-image: url(https://image.flaticon.com/icons/png/128/109/109612.png); */
+  /* background-image: url(https://image.flaticon.com/icons/png/128/109/109612.png); 
   display: block;
   margin: 0 auto;
   background-size: 100%;
@@ -53,4 +53,22 @@
   font-weight: 600;
   text-transform: capitalize;
   text-align: center;
+}
+*/ .firma-ara {
+  padding-bottom: 100px;
+  padding-top: 100px;
+}
+.form-arka-plan {
+  background-image: url("https://cdn.filepicker.io/api/file/1WxRtkAQG5h70aoPQdGA/convert?format=jpeg&quality=50");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.acik-renk-form {
+  background: rgba(255, 255, 255, 0.58);
+}
+.siyah-cerceve {
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
 }

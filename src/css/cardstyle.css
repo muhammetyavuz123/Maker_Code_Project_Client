@@ -6,6 +6,9 @@
   width: 25%;
   float: left;
 }
+ul {
+  list-style-type: none;
+}
 
 .btn-primary:hover,
 .btn-primary:focus {
