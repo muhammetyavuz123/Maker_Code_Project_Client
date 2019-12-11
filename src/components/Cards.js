@@ -7,6 +7,7 @@ import "../css/cardstyle.css";
 import NavBar from "../components/NavBar";
 import Footer from "./Footer";
 import Loading from "./Loading";
+import faker from "faker";
 
 class Cards extends Component {
   //action componentdidmount olduğunda çağırdık
@@ -26,7 +27,7 @@ class Cards extends Component {
   };
   renderList = () => {
     //cardların map lendiği ve renderlendiği kısım
-    if (this.props !== undefined) {
+    if (this.props.cards.length > 0) {
       const response = this.props.cards.map(card => (
         <div style={{ marginLeft: "0" }}>
           <section id="team" class="pb-5">
@@ -43,13 +44,10 @@ class Cards extends Component {
                         <div class="frontside">
                           <div class="card">
                             <div class="card-body text-center">
-                              <p>
-                                <img
-                                  class=" img-fluid"
-                                  src={card.img}
-                                  alt="card image"
-                                />
-                              </p>
+                              <div>
+                                <img src={faker.image.avatar()}></img>
+                              </div>
+
                               <h4 class="card-title">
                                 {card.name}&nbsp;
                                 {card.surname}

@@ -3,8 +3,10 @@ import "../css/register.css";
 import axios from "axios";
 import NavBar from "./NavBar";
 import history from "../history";
+import { connect } from "react-redux";
+import { registerUser } from "../actions/index";
 
-export default class Register extends Component {
+class Register extends Component {
   state = {
     name: "",
     surname: "",
@@ -12,21 +14,11 @@ export default class Register extends Component {
     password: ""
   };
 
-  postRegister = async () => {
-    const requestBody = this.state;
-    try {
-      const response = await axios.post(
-        `http://localhost:5000/register`,
-        requestBody
-      );
-      history.push("/login");
-      console.log(response.data);
-    } catch (error) {}
-  };
-
   onSubmit = event => {
     event.preventDefault();
-    this.postRegister();
+
+    const requestBody = this.state;
+    this.props.registerUser(requestBody);
   };
 
   render() {
@@ -133,3 +125,11 @@ export default class Register extends Component {
     );
   }
 }
+const mapStateToProps = state => {
+  return {
+    registerPost: state.registerPost
+  };
+};
+
+//maptostateProps connect
+export default connect(mapStateToProps, { registerUser })(Register);

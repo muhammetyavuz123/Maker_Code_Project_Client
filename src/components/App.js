@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Redirect } from "react";
 import Home from "./Home";
 import PlayerCard from "./PlayerPostCard";
 import Abouth from "./Abouth";
@@ -10,6 +10,8 @@ import SingleCard from "./SingleCard";
 import Register from "./Register";
 import Login from "./Login";
 import history from "../history";
+import Loading from "./Loading";
+
 // import NoPage from "./NoPage";
 
 class App extends React.Component {
@@ -22,12 +24,13 @@ class App extends React.Component {
             <Route exact path="/abouth" component={Abouth} />
             <Route exact path="/PlayerCard" component={PlayerCard} />
             <Route exact path="/Cards" component={Cards} />
+
             <Route exact path="/cards/:singleUserID" component={SingleCard} />
             <Route exact path="/BlokPost" component={BlokPost} />
             <Route exact path="/Contact" component={Contact} />
             <Route exact path="/Register" component={Register} />
             <Route exact path="/Login" component={Login} />
-            {/* <Route exact path="*" component={NoPage} /> */}
+            <Route path="*" component={Loading} />
           </Switch>
         </div>
       </Router>

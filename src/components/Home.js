@@ -53,6 +53,9 @@ export default class Home extends Component {
             </header>
             <div class="content">
               <div class="site-banner__vid">
+                <video style={{ width: "100%", height: "100%" }} autoPlay loop>
+                  <source src="video.mp4" type="video/mp4" />
+                </video>
                 <img
                   src="http://imgstocks.com/wp-content/uploads/Hd-soccer-20-wallpaper-you-are-viewing-the-sports-wallpaper-named-hd.jpg"
                   style={{ width: "100%", height: "auto" }}

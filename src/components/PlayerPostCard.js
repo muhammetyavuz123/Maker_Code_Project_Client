@@ -16,8 +16,8 @@ export default class PlayerCard extends Component {
     databirth: "",
     city: "",
     district: "",
-    explanation: "",
-    img: {}
+    explanation: ""
+    // img: {}
   };
 
   postCard = async () => {
@@ -33,8 +33,9 @@ export default class PlayerCard extends Component {
           }
         }
       );
+      console.log(response);
+
       history.push("/Cards");
-      console.log(response.data);
     } catch (error) {}
   };
 
@@ -190,7 +191,7 @@ export default class PlayerCard extends Component {
                           class="form-control"
                           multiple=""
                           onChange={event =>
-                            this.setState({ img: event.target.value })
+                            this.setState({ img: event.target.multiple })
                           }
                         />
                         <br></br>

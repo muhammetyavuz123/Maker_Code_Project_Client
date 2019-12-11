@@ -8,6 +8,7 @@ import Calendar from "./Calendar";
 import Footer from "./Footer";
 import Loading from "./Loading";
 import ProfilBlok from "./ProfilBlok";
+import faker from "faker";
 
 class SingleCard extends Component {
   //single card için card id singlecardID içine attım
@@ -25,20 +26,17 @@ class SingleCard extends Component {
           <div class="wrapper">
             <div class="page-header clear-filter" filter-color="orange">
               <div
-                class="page-header-image"
-                data-parallax="true"
-                style={{
-                  backgroundimage:
-                    "url('https://images.unsplash.com/photo-1476984251899-8d7fdfc5c92c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3700&q=80'"
-                }}
+              // class="page-header-image"
+              // data-parallax="true"
+              // style={{
+              //   backgroundimage:
+              //     "url('https://images.unsplash.com/photo-1476984251899-8d7fdfc5c92c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3700&q=80'"
+              // }}
               ></div>
 
               <div class="container">
                 <div class="photo-container">
-                  <img
-                    src="https://raw.githack.com/creativetimofficial/now-ui-kit/master/assets/img/ryan.jpg"
-                    alt=""
-                  />
+                  <img src={faker.image.avatar()}></img>
                 </div>
 
                 <h3 class="title">

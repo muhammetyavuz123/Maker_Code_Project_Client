@@ -1,6 +1,7 @@
 import axios from "axios";
 import api from "../api/db";
 import db from "../api/db";
+import history from "../history";
 
 //card get action
 export const cardsGet = keyWord => async dispatch => {
@@ -36,6 +37,12 @@ export const blogPost = () => async dispatch => {
   const response = await db.post("/blok");
 
   dispatch({ type: "BLOG_POST", payload: response.data });
+};
+//register
+export const registerUser = requestBody => async dispatch => {
+  const response = await db.post("/register", requestBody);
+  history.push("/Login");
+  dispatch({ type: "POST_REGISTER", payload: response.data });
 };
 //card Delete
 export const cardDel = cardId => async dispatch => {
